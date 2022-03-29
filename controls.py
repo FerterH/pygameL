@@ -10,14 +10,29 @@ def events(screen,gun,bullets):
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_a:
                     gun.keyUP_a = True
+                    pygame.mixer.music.load('sounds/steps.mp3')
+                    pygame.mixer.music.play(0)
                 elif event.key == pygame.K_w:
                     gun.keyUP_w = True
+                    pygame.mixer.music.load('sounds/steps.mp3')
+                    pygame.mixer.music.play(0)
                 elif event.key == pygame.K_s:
                     gun.keyUP_s = True
+                    pygame.mixer.music.load('sounds/steps.mp3')
+                    pygame.mixer.music.play(0)
                 elif event.key == pygame.K_d:
                     gun.keyUP_d = True
+                    pygame.mixer.music.load('sounds/steps.mp3')
+                    pygame.mixer.music.play(0)
                 elif event.key == pygame.K_UP:
                     gun.keyUP_up = True
+                elif event.key == pygame.K_x:
+                    gun.keyUP_x = True
+                    pygame.mixer.music.set_volume(0.2)
+                    pygame.mixer.music.load('sounds/hee.mp3')
+                    pygame.mixer.music.play(0)
+                    pygame.mixer.music.set_volume(1)
+
                 elif event.key == pygame.K_DOWN:
                     gun.keyUP_down = True
                 elif event.key == pygame.K_LEFT:
@@ -29,6 +44,8 @@ def events(screen,gun,bullets):
                 elif event.key == pygame.K_SPACE:
                     new_bullet = Bullet(screen,gun)
                     bullets.add(new_bullet)
+                    pygame.mixer.music.load('sounds/pew2.mp3')
+                    pygame.mixer.music.play(0,)
 
 
             elif event.type == pygame.KEYUP:
@@ -40,6 +57,8 @@ def events(screen,gun,bullets):
                     gun.keyUP_d = False
                 elif event.key == pygame.K_w:
                     gun.keyUP_w = False
+                elif event.key == pygame.K_x:
+                    gun.keyUP_x = False
                 elif event.key == pygame.K_UP:
                     gun.keyUP_up = False
                 elif event.key == pygame.K_DOWN:

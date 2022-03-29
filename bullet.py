@@ -20,3 +20,5 @@ class Bullet(pygame.sprite.Sprite):
 
     def drawBullet(self):
         pygame.draw.rect(self.screen, self.color, self.rect)
+    def drawBullet2(self):
+        pygame.draw.rect2(self.screen, self.color, self.rect2)
