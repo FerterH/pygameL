@@ -26,6 +26,8 @@ def events(screen,gun,bullets):
                     pygame.mixer.music.play(0)
                 elif event.key == pygame.K_UP:
                     gun.keyUP_up = True
+                    pygame.mixer.music.load('sounds/STEPS2.mp3')
+                    pygame.mixer.music.play(0)
                 elif event.key == pygame.K_x:
                     gun.keyUP_x = True
                     pygame.mixer.music.set_volume(0.2)
@@ -35,10 +37,16 @@ def events(screen,gun,bullets):
 
                 elif event.key == pygame.K_DOWN:
                     gun.keyUP_down = True
+                    pygame.mixer.music.load('sounds/STEPS2.mp3')
+                    pygame.mixer.music.play(0)
                 elif event.key == pygame.K_LEFT:
                     gun.keyUP_left = True
+                    pygame.mixer.music.load('sounds/STEPS2.mp3')
+                    pygame.mixer.music.play(0)
                 elif event.key == pygame.K_RIGHT:
                     gun.keyUP_right = True
+                    pygame.mixer.music.load('sounds/STEPS2.mp3')
+                    pygame.mixer.music.play(0)
                 elif event.key == pygame.K_f:
                     gun.keyUP_f = 1
                 elif event.key == pygame.K_SPACE:
@@ -80,6 +88,7 @@ def update(bg_color, screen, gun, bullets):
         bullet.drawBullet()
     gun.output()
     pygame.display.flip()
+
 
 
 
