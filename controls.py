@@ -83,7 +83,7 @@ def events(screen,gun,bullets):
 
 
 def update(bg_color, screen, gun, bullets):
-    screen.fill(bg_color)
+    # screen.fill(bg_color)
     for bullet in bullets.sprites():
         bullet.drawBullet()
     gun.output()
@@ -93,7 +93,7 @@ def update(bg_color, screen, gun, bullets):
 
 
 def update2(bg_color, screen, gun, bullets):
-    screen.fill(bg_color)
+    # screen.fill(bg_color)
     for bullet2 in bullets.sprites():
         bullet2.drawBullet()
     gun.output()

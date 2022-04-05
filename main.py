@@ -8,7 +8,7 @@ def showdown():
     screen = pygame.display.set_mode((800, 600))
     gun = RPG(screen)
     bullY = Bullet(screen,gun)
-    print('пуля х',bullY.update())
+    # print('пуля х',bullY.update())
     # print('x:', gun.rect.centerx)
     # print('y:', gun.rect.centery)
     # print('x2:', gun.rect2.centerx)
@@ -24,11 +24,14 @@ def run():
     bg_color = (0, 120, 120)
     gun = RPG(screen)
     bullets = Group()
-
+    bg = pygame.image.load('images/back.png')
+    rect = bg.get_rect()
+    screen_rect = screen.get_rect()
 
     while True:
+        screen.blit(bg, rect)
         controls.events(screen, gun, bullets)
-        screen.fill(bg_color)
+        # screen.fill(bg_color)
         gun.output()
         gun.update_gun()
         gun.update_gun2()
