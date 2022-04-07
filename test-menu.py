@@ -1,8 +1,7 @@
-import pygame
 # import main
 import sys
 import pygame
-import sys
+import time
 from gun import RPG
 import controls
 from pygame.sprite import Group
@@ -32,11 +31,34 @@ height = screen.get_height()
 
 # defining a font
 smallfont = pygame.font.SysFont('Corbel', 35)
-
+smallfont2 = pygame.font.SysFont('Corbel', 32)
 # rendering a text written in
 # this font
 text = smallfont.render('Start', True, color)
+text2 = smallfont2.render('Quit', True, color)
 
+def run():
+    pygame.init()
+    screen = pygame.display.set_mode((800, 600))  # sizes
+    pygame.display.set_caption('Battlefild 6')  # tite
+    bg_color = (0, 120, 120)
+    gun = RPG(screen)
+    bullets = Group()
+    bg = pygame.image.load('images/back.png')
+    rect = bg.get_rect()
+    screen_rect = screen.get_rect()
+
+    while True:
+        screen.blit(bg, rect)
+        controls.events(screen, gun, bullets)
+        # screen.fill(bg_color)
+        gun.output()
+        gun.update_gun()
+        gun.update_gun2()
+        controls.update(bg_color, screen, gun, bullets)
+        controls.update2(bg_color, screen, gun, bullets)
+        controls.delete(bullets)
+        pygame.display.flip()
 while True:
 
     for ev in pygame.event.get():
@@ -49,43 +71,15 @@ while True:
 
             # if the mouse is clicked on the
             # button the game is terminated
-            if width / 2 <= mouse[0] <= width / 2 + 140 and height / 2 <= mouse[1] <= height / 2 + 40:
-                def run():
-                    pygame.init()
-                    screen = pygame.display.set_mode((800, 600))  # sizes
-                    pygame.display.set_caption('Battlefild 6')  # tite
-                    bg_color = (0, 120, 120)
-                    gun = RPG(screen)
-                    bullets = Group()
-                    bg = pygame.image.load('images/back.png')
-                    rect = bg.get_rect()
-                    screen_rect = screen.get_rect()
-
-                    while True:
-                        screen.blit(bg, rect)
-                        controls.events(screen, gun, bullets)
-                        # screen.fill(bg_color)
-                        gun.output()
-                        gun.update_gun()
-                        gun.update_gun2()
-                        controls.update(bg_color, screen, gun, bullets)
-                        controls.update2(bg_color, screen, gun, bullets)
-                        controls.delete(bullets)
-                        #        gun.py.mit()
-                        pygame.display.flip()
-                        # showdown()
-                        # print(bullet.speed)
-
-                        # if gun.rect2.centery == bullet.Bullet.rect.centery and gun.rect2.centerx == bullet.Bullet.rect.centerx:
-                        #     print('ПОПАЛ')
-
-
+            if 277 <= mouse[0] <= 521 and 231 <= mouse[1] <= 231 + 32:
                 run()
-
+            if 404 <= mouse[0] <= 521 and 374 <= mouse[1] <= 399:
+                pygame.quit()
 
                 # fills the screen with a color
-    bg =
-    screen.blit()
+    bg = pygame.image.load('images/mine.png')
+    rect = bg.get_rect()
+    screen.blit(bg, rect)
 
     # stores the (x,y) coordinates into
     # the variable as a tuple
@@ -93,14 +87,28 @@ while True:
 
     # if mouse is hovered on a button it
     # changes to lighter shade
-    if width / 2 <= mouse[0] <= width / 2 + 140 and height / 2 <= mouse[1] <= height / 2 + 40:
-        pygame.draw.rect(screen, color_light, [width / 2, height / 2, 140, 40])
+    if 277 <= mouse[0] <=521 and 231 <= mouse[1] <= 259:
+
+        pygame.draw.rect(screen, color_light, [276,  231, 248, 32])
+        pygame.mixer.music.load('sounds/click.mp3')
+        pygame.mixer.music.play(0)
+        time.sleep(0.1)
+    else:
+
+        pygame.draw.rect(screen, color_dark, [276, 231, 248, 32])
+
+    if 404 <= mouse[0] <= 521 and 374 <= mouse[1] <= 399:
+        pygame.draw.rect(screen, color_light, [404, 374, 120, 28])
 
     else:
-        pygame.draw.rect(screen, color_dark, [width / 2, height / 2, 140, 40])
+        pygame.mixer.music.load('sounds/click.mp3')
+        pygame.mixer.music.play(0)
+        pygame.draw.rect(screen, color_dark, [404, 374, 120, 28])
 
         # superimposing the text onto our button
-    screen.blit(text, (width / 2 + 50, height / 2))
-
+    screen.blit(text, (360, 230))
+    screen.blit(text2, (430, 375))
+    print('x',mouse[0])
+    print('y', mouse[1])
     # updates the frames of the game
     pygame.display.update()
