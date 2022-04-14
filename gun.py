@@ -29,7 +29,7 @@ class RPG():
         self.timer = 0
         self.keyUP_f = 0
 
-            #выход
+            #вывод
     def output(self):
         self.screen.blit(self.image, self.rect)
         self.screen.blit(self.image2, self.rect2)
@@ -61,19 +61,23 @@ class RPG():
         if self.keyUP_left == True:
             self.rect2.centerx -=1
             if self.rect2.centerx<1:
-                self.rect2.centerx += 1
+                for i in range(300):
+                    self.rect2.centerx += 1
         elif self.keyUP_right == True:
             self.rect2.centerx +=1
             if self.rect2.centerx>1920:
-                self.rect2.centerx -= 1
+                for i in range(50):
+                    self.rect2.centerx -= 1
         elif self.keyUP_up == True:
             self.rect2.centery -=1
             if self.rect2.centery<1:
-                self.rect2.centery += 1
+                for i in range(150):
+                    self.rect2.centery += 1
         elif self.keyUP_down == True:
             self.rect2.centery +=1
             if self.rect2.centery>1080:
-                self.rect2.centery -= 1
+                for i in range(50):
+                    self.rect2.centery -= 1
 
 
 

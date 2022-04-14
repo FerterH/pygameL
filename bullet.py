@@ -20,11 +20,14 @@ class Bullet(pygame.sprite.Sprite):
     def update(self):
         self.y -= self.speed
         self.rect.y = self.y
-        self.rect.x = self.x
+
         #print('пуля x', self.rect.x)
 
 
         #print('пуля у', self.rect.y)
+        return self.rect.y
+    def update_y(self):
+        self.rect.x = self.x
         return self.rect.y
 
     def drawBullet(self):

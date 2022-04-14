@@ -8,7 +8,7 @@ def showdown():
     screen = pygame.display.set_mode((800, 600))
     gun = RPG(screen)
     bullY = Bullet(screen,gun)
-    # print('пуля х',bullY.update())
+    print('пуля х',bullY.update())
     # print('x:', gun.rect.centerx)
     # print('y:', gun.rect.centery)
     # print('x2:', gun.rect2.centerx)
