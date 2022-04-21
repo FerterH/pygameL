@@ -78,6 +78,9 @@ from random import randint
 
 
 def events(screen,gun, bullets):
+    music = pygame.mixer.Sound('sounds/steps.mp3')
+    pew = pygame.mixer.Sound('sounds/pew2.mp3')
+
     # управление случайными числами 2м героем
     random_number = randint(0, 20)
     if random_number >= 16 and random_number <= 20:
@@ -103,16 +106,22 @@ def events(screen,gun, bullets):
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_d:
                 gun.keyUP_d = True
+                music.play()
+
             elif event.key == pygame.K_a:
                 gun.keyUP_a = True
+                music.play()
             elif event.key == pygame.K_w:
                 gun.keyUP_w = True
+                music.play()
             elif event.key == pygame.K_s:
                 gun.keyUP_s = True
+                music.play()
+
             elif event.key == pygame.K_SPACE:
                 new_bullet = Bullet(screen, gun)
                 bullets.add(new_bullet)
-
+                pew.play()
         elif event.type == pygame.KEYUP:
 
             if event.key == pygame.K_d:

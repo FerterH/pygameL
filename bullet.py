@@ -25,10 +25,10 @@ class Bullet(pygame.sprite.Sprite):
 
 
         #print('пуля у', self.rect.y)
-        return self.rect.y
+        return self.rect.top
     def update_y(self):
         self.rect.x = self.x
-        return self.rect.y
+        return self.rect.centerx
 
     def drawBullet(self):
         pygame.draw.rect(self.screen, self.color, self.rect)

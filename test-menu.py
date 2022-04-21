@@ -1,6 +1,7 @@
 # import main
-import sys
+import os
 import pygame
+import webbrowser
 import time
 from gun import RPG
 import goEvil
@@ -41,7 +42,7 @@ def run():
     bg = pygame.image.load('images/back.png')
     rect = bg.get_rect()
     screen_rect = screen.get_rect()
-    pygame.mixer.music.load('sounds/music.mp3')
+    pygame.mixer.music.load('sounds/c418-key.mp3')
     pygame.mixer.music.play(0)
     while True:
         bullX = Bullet(screen, gun)
@@ -78,7 +79,11 @@ while True:
                 run()
             if 404 <= mouse[0] <= 521 and 374 <= mouse[1] <= 399:
                 pygame.quit()
-            if 277 <= mouse[0] <= 521 and 312 <= mouse[1] <= 399:
+            if 277 <= mouse[0] <= 521 and 312 <= mouse[1] <= 339:
+                os.startfile(r"C:\Users\IT-student\Desktop\Новая папка\startsite.bat")
+                webbrowser.open('http://127.0.0.1:8000/')
+
+
                 print('ошибки, ошибки!, ОШИБКИ!!!')
 
                 # about = INFO(screen)
